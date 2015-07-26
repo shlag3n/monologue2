@@ -20,6 +20,7 @@ module Monologue
       app.config.assets.precompile += %w[
         monologue/admin/ckeditor-config.js
         ckeditor/*
+        monologue/foundation_icons/social_foundicons.*
       ]
     end
 
