@@ -31,5 +31,10 @@ module Monologue
 
     ENGINE_ROOT = File.join(File.dirname(__FILE__), '../..')
     require "#{ENGINE_ROOT}/deprecations"
+
+    Ckeditor.setup do |config|
+      config.assets_languages = ['en']
+      config.assets_plugins = ['filebrowser', 'image', 'link', 'showblocks', 'div', 'dialog']
+    end
   end
 end
