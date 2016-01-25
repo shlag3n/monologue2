@@ -20,7 +20,7 @@ module Monologue2
       app.config.assets.precompile += %w[
         monologue2/admin/ckeditor-config.js
         ckeditor/*
-        monologue2/foundation_icons/social_foundicons.*
+        monologue/foundation_icons/social_foundicons.*
       ]
     end
 
