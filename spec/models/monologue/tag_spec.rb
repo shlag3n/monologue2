@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Monologue::Tag do
+describe Monologue2::Tag do
   before(:each) do
     @tag= Factory(:tag)
   end

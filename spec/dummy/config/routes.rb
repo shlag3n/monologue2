@@ -1,3 +1,3 @@
 Dummy::Application.routes.draw do
-  mount Monologue::Engine, at: "/monologue"
+  mount Monologue2::Engine, at: "/monologue"
 end

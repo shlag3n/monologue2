@@ -1,5 +1,5 @@
 en:
-  monologue:
+  monologue2:
     posts:
       pagination:
         older_posts: "Older posts"
@@ -110,7 +110,7 @@ en:
           users: "Users"
   activerecord:
     attributes:
-      monologue/user:
+      monologue2/user:
         password_digest: "Password confirmation"
     errors:
       format: "%{message}"
@@ -119,7 +119,7 @@ en:
     errors:
       models:
         full_messages: "%{message}"
-        monologue/post:
+        monologue2/post:
           blank: "%{attribute} is required"
           taken: "%{attribute} is already used by another post"
           attributes:
@@ -128,7 +128,7 @@ en:
             url:
               start_with_slash: "URL can't start with a slash ('/')"
 
-        monologue/user:
+        monologue2/user:
           blank: "%{attribute} is required"
           taken: "%{attribute} has already been taken"
           attributes:

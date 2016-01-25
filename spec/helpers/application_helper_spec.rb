@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe Monologue::ApplicationHelper do
+describe Monologue2::ApplicationHelper do
   describe "creating the url for a given tag" do
     before(:each) do
       @tag= Factory(:tag, name: 'my_tag')
     end
 
     it "should return a well formed url for the tag" do
-      helper.tag_url(@tag).should eq "#{Monologue::Engine.routes.url_helpers.root_path}tags/my_tag"
+      helper.tag_url(@tag).should eq "#{Monologue2::Engine.routes.url_helpers.root_path}tags/my_tag"
     end
   end
 
@@ -51,67 +51,67 @@ describe Monologue::ApplicationHelper do
       end
 
       it "generate github" do
-        helper.github_icon.should eq "<a class=\"social\" href=\"http://github.com/#{Monologue::Config.github_username}\" target=\"_blank\"><i class=\"foundicon-github\"></i></a>"
+        helper.github_icon.should eq "<a class=\"social\" href=\"http://github.com/#{Monologue2::Config.github_username}\" target=\"_blank\"><i class=\"foundicon-github\"></i></a>"
       end
 
       it "generate twitter" do
-        helper.twitter_icon.should eq "<a class=\"social\" href=\"http://twitter.com/#{Monologue::Config.twitter_username}\" target=\"_blank\"><i class=\"foundicon-twitter\"></i></a>"
+        helper.twitter_icon.should eq "<a class=\"social\" href=\"http://twitter.com/#{Monologue2::Config.twitter_username}\" target=\"_blank\"><i class=\"foundicon-twitter\"></i></a>"
       end
 
       it "generate linkedin" do
-        helper.linkedin_icon.should eq "<a class=\"social\" href=\"#{Monologue::Config.linkedin_url}\" target=\"_blank\"><i class=\"foundicon-linkedin\"></i></a>"
+        helper.linkedin_icon.should eq "<a class=\"social\" href=\"#{Monologue2::Config.linkedin_url}\" target=\"_blank\"><i class=\"foundicon-linkedin\"></i></a>"
       end
 
       it "generate googleplus" do
-        helper.googleplus_icon.should eq "<a class=\"social\" href=\"#{Monologue::Config.google_plus_account_url}\" target=\"_blank\"><i class=\"foundicon-google-plus\"></i></a>"
+        helper.googleplus_icon.should eq "<a class=\"social\" href=\"#{Monologue2::Config.google_plus_account_url}\" target=\"_blank\"><i class=\"foundicon-google-plus\"></i></a>"
       end
 
       it "generate facebook" do
-        helper.facebook_icon.should eq "<a class=\"social\" href=\"#{Monologue::Config.facebook_url}\" target=\"_blank\"><i class=\"foundicon-facebook\"></i></a>"
+        helper.facebook_icon.should eq "<a class=\"social\" href=\"#{Monologue2::Config.facebook_url}\" target=\"_blank\"><i class=\"foundicon-facebook\"></i></a>"
       end
     end
 
     context "do not render if disabled" do
 
       it "do not generate rss icon" do
-        Monologue::Config.show_rss_icon = nil
+        Monologue2::Config.show_rss_icon = nil
         helper.rss_icon.should eq nil
-        Monologue::Config.show_rss_icon = false
+        Monologue2::Config.show_rss_icon = false
         helper.rss_icon.should eq nil
       end
 
       it "do not generate github" do
-        Monologue::Config.github_username = nil
+        Monologue2::Config.github_username = nil
         helper.github_icon.should eq nil
-        Monologue::Config.github_username = false
+        Monologue2::Config.github_username = false
         helper.github_icon.should eq nil
       end
 
       it "do not generate twitter" do
-        Monologue::Config.twitter_username = nil
+        Monologue2::Config.twitter_username = nil
         helper.twitter_icon.should eq nil
-        Monologue::Config.twitter_username = false
+        Monologue2::Config.twitter_username = false
         helper.twitter_icon.should eq nil
       end
 
       it "do not generate linkedin" do
-        Monologue::Config.linkedin_url = nil
+        Monologue2::Config.linkedin_url = nil
         helper.linkedin_icon.should eq nil
-        Monologue::Config.linkedin_url = false
+        Monologue2::Config.linkedin_url = false
         helper.linkedin_icon.should eq nil
       end
 
       it "do not generate googleplus" do
-        Monologue::Config.google_plus_account_url = nil
+        Monologue2::Config.google_plus_account_url = nil
         helper.googleplus_icon.should eq nil
-        Monologue::Config.google_plus_account_url = false
+        Monologue2::Config.google_plus_account_url = false
         helper.googleplus_icon.should eq nil
       end
 
       it "do not generate facebook" do
-        Monologue::Config.facebook_url = nil
+        Monologue2::Config.facebook_url = nil
         helper.facebook_icon.should eq nil
-        Monologue::Config.facebook_url = false
+        Monologue2::Config.facebook_url = false
         helper.facebook_icon.should eq nil
       end
     end
@@ -121,27 +121,27 @@ describe Monologue::ApplicationHelper do
 
   describe "calculating the label size for a tag" do
     it "should return 1 if the min value is inferior to the max" do
-      tag = mock_model(Monologue::Tag, frequency: 5)
+      tag = mock_model(Monologue2::Tag, frequency: 5)
       helper.size_for_tag(tag, 5, 4).should eq 1
     end
 
     it "should return 1 if the min value is equal to the max" do
-      tag = mock_model(Monologue::Tag, frequency: 3)
+      tag = mock_model(Monologue2::Tag, frequency: 3)
       helper.size_for_tag(tag, 3, 3).should eq 1
     end
 
     it "should return 1 for a value equal to min" do
-      tag = mock_model(Monologue::Tag, frequency: 3)
+      tag = mock_model(Monologue2::Tag, frequency: 3)
       helper.size_for_tag(tag, 3, 7).should eq 1
     end
 
     it "should return number of label sizes for a value equal to max" do
-      tag = mock_model(Monologue::Tag, frequency: 7)
+      tag = mock_model(Monologue2::Tag, frequency: 7)
       helper.size_for_tag(tag, 3, 7).should eq 5
     end
 
     it "should return a logarithmic scaling between min and max for a value strictly in the given interval" do
-      tag = mock_model(Monologue::Tag, frequency: 6)
+      tag = mock_model(Monologue2::Tag, frequency: 6)
       helper.size_for_tag(tag, 3, 7).should > 1
       helper.size_for_tag(tag, 3, 7).should < 5 #helper.NUMBER_OF_LABEL_SIZES
     end

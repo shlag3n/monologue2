@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Monologue::PostsController do
+describe Monologue2::PostsController do
   before do
-    @routes = Monologue::Engine.routes
+    @routes = Monologue2::Engine.routes
   end
 
   describe 'GET #index' do

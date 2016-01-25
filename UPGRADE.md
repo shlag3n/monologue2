@@ -1,7 +1,7 @@
 # Upgrade Monologue
 
 ## 0.3.0 to 0.4.0
- - Change of syntax for configuration. Please use Monologue::Config instead of the old Monologue module
+ - Change of syntax for configuration. Please use Monologue2::Config instead of the old Monologue module
 
 
 ## from 0.2.x to 0.3
@@ -12,7 +12,7 @@ Once the gems has been upgraded to latest versions:
 2. $`bundle exec rake monologue:install:migrations`
 3. $`bundle exec rake db:migrate`
 
-Then if you have customized some views, make sure that you are not using the `Monologue::PostRevision` object that was removed in favor of the `Monologue::Post` object.
+Then if you have customized some views, make sure that you are not using the `Monologue2::PostRevision` object that was removed in favor of the `Monologue2::Post` object.
 
 IMPORTANT: Do not forget to run Deface's precompile rake task too! `bundle exec rake deface:precompile`
 

@@ -1,1 +1,1 @@
-Monologue::User.create!({name: "Monologue", email: "monologue@example.com", password: "monologue", password_confirmation: "monologue"})
+Monologue2::User.create!({name: "Monologue", email: "monologue@example.com", password: "monologue", password_confirmation: "monologue"})

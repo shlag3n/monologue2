@@ -8,7 +8,7 @@ describe "pagination" do
   it "should not show all posts" do
     visit "/monologue"
     within(".content") do
-      page.should_not have_content("post #{Monologue::Config.posts_per_page + 1}")
+      page.should_not have_content("post #{Monologue2::Config.posts_per_page + 1}")
     end
   end
 

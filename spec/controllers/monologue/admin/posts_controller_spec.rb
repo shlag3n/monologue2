@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Monologue::Admin::PostsController do
+describe Monologue2::Admin::PostsController do
   let(:user) { create(:user) }
   before do
     sign_in_as user
-    @routes = Monologue::Engine.routes
+    @routes = Monologue2::Engine.routes
   end
 
   describe 'PUT #update' do

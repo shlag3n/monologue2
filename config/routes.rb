@@ -1,11 +1,11 @@
-Monologue::Engine.routes.draw do
+Monologue2::Engine.routes.draw do
   root to:  "posts#index"
   get "/page/:page", to:  "posts#index", as:  "posts_page"
   get "/feed" => "posts#feed", as:  "feed", defaults: {format: :rss}
 
   get "/tags/:tag" =>"tags#show", as: "tags_page"
 
-  namespace :admin, path: "monologue" do
+  namespace :admin, path: "monologue2" do
     get "/" => "posts#index", as:  "" # responds to admin_url and admin_path
     get "logout" => "sessions#destroy"
     get "login" => "sessions#new"

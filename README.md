@@ -57,11 +57,11 @@ And run `bundle install` to fetch the gem and update your 'Gemfile.lock'.
 Add this to your route file (`config/route.rb`)
 ```ruby
 # This line mounts Monologue's routes at the root of your application.
-# This means, any requests to URLs such as /my-post, will go to Monologue::PostsController.
+# This means, any requests to URLs such as /my-post, will go to Monologue2::PostsController.
 # If you would like to change where this engine is mounted, simply change the :at option to something different.
 #
 # We ask that you don't use the :as option here, as Monologue relies on it being the default of "monologue"
-mount Monologue::Engine, at: '/' # or whatever path, be it "/blog" or "/monologue"
+mount Monologue2::Engine, at: '/' # or whatever path, be it "/blog" or "/monologue"
 ```
 For example, if you decide to mount it at  `/blog`, the admin section will be available at `/blog/monologue`.
 Here we decide to use monologue as default route mounting it at `/`, it means that the admin section will directly
@@ -78,7 +78,7 @@ Run these commands:
 ### 4. Create a user
 Open your development console with `bin/rails c`, then:
 ```ruby
-Monologue::User.create(name: "monologue", email:"monologue@example.com", password:"my-password", password_confirmation: "my-password")
+Monologue2::User.create(name: "monologue", email:"monologue@example.com", password:"my-password", password_confirmation: "my-password")
 ```
 
 ### 5. Configure Monologue.
